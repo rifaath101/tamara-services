@@ -1,5 +1,12 @@
+import Header from './components/header/Header'
+import CustomerTable from './components/table/CustomerTable'
 function App() {
-  return <div className='App'>Hello World</div>
+  return (
+    <>
+      <Header />
+      <CustomerTable />
+    </>
+  )
 }
 
 export default App
