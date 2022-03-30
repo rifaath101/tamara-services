@@ -1,10 +1,8 @@
-import Header from './components/header/Header'
-import CustomerTable from './components/table/CustomerTable'
+import BasicTable from './components/table/BasicTable'
 function App() {
   return (
     <>
-      <Header />
-      <CustomerTable />
+      <BasicTable />
     </>
   )
 }
