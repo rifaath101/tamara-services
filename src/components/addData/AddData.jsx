@@ -1,24 +1,7 @@
-import React, { useState } from 'react'
-import data from './MOCK_DATA.json'
-import TableDesign from './TableDesign'
+import React from 'react'
+import AddDataStyling from './AddDataStyling'
 
-const BasicTable = () => {
-  const [customerInfo, setCustomerInfo] = useState(data)
-  const [addFormData, setAddFormData] = useState({
-    customer_id: '',
-    email: '',
-    first_name: '',
-    last_name: '',
-    phone_number: '',
-    gender: '',
-    birth_date: '',
-    country_code: '',
-    address: '',
-    is_email_verified: '',
-    is_id_verified: '',
-    national_id: '',
-  })
-
+const AddData = ({ addFormData, customers, setCustomers, setAddFormData }) => {
   const handleAddFormChange = (event) => {
     event.preventDefault()
 
@@ -30,9 +13,6 @@ const BasicTable = () => {
 
     setAddFormData(newFormData)
   }
-
-  /* Data modification */
-
   const handleAddFormSubmit = (event) => {
     event.preventDefault()
 
@@ -51,14 +31,13 @@ const BasicTable = () => {
       national_id: addFormData.national_id,
     }
 
-    const newCustomers = [...customerInfo, newCustomer]
-    setCustomerInfo(newCustomers)
+    const newCustomers = [...customers, newCustomer]
+    setCustomers(newCustomers)
   }
 
   return (
     <>
-      <TableDesign
-        customerInfo={customerInfo}
+      <AddDataStyling
         handleAddFormSubmit={handleAddFormSubmit}
         handleAddFormChange={handleAddFormChange}
       />
@@ -66,4 +45,4 @@ const BasicTable = () => {
   )
 }
 
-export default BasicTable
+export default AddData

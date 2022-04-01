@@ -1,4 +1,5 @@
-import BasicTable from './components/table/BasicTable'
+import BasicTable from './components/BasicTable'
+import './App.css'
 function App() {
   return (
     <>
