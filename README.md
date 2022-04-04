@@ -13,6 +13,6 @@ A CRUD table application with pagination and a Login component with validation
 
 ## Screenshot
 
-![image](https://user-images.githubusercontent.com/72337379/161613137-ed58fddb-c1f7-4ac4-aab7-bc2506dde098.png)
+![image](https://user-images.githubusercontent.com/72337379/161613281-b69fb6ef-e931-4d25-b5a2-dfb488804f32.png)
 
 
