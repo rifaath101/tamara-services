@@ -14,7 +14,7 @@ const TableDesign = ({
   return (
     <div className='table-wrapper'>
       <form className='data-form' onSubmit={handleEditFormSubmit}>
-        <table class='fl-table'>
+        <table className='fl-table'>
           <thead>
             <tr>
               <th>Customer ID</th>

@@ -101,7 +101,7 @@ const AddDataStyling = ({ handleAddFormSubmit, handleAddFormChange }) => {
           placeholder='National ID'
           onChange={handleAddFormChange}
         />
-        <button className='right-btn' type='submit'>
+        <button className='right-btn-add' type='submit'>
           Add
         </button>
       </form>

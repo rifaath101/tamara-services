@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import BasicTable from './components/BasicTable'
-import UserViewTable from './components/user-view/UserViewTable'
 import Login from './components/log-in/Login'
 import './App.css'
+import FinalData from './components/FinalData'
 function App() {
   const [loggedIn, setIsLoggedIn] = useState(false)
 
@@ -10,7 +9,7 @@ function App() {
     setIsLoggedIn(true)
   }
 
-  return <>{!loggedIn ? <Login submitForm={submitForm} /> : <BasicTable />}</>
+  return <>{!loggedIn ? <Login submitForm={submitForm} /> : <FinalData />}</>
 }
 
 export default App

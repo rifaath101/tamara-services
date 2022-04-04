@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import data from './MOCK_DATA.json'
 import TableDesign from './TableDesign'
 import AddData from './addData/AddData'
 import Pagination from './Pagination'
 
-const BasicTable = () => {
-  const [customers, setCustomers] = useState(data)
-  const [currentPage, setCurrentPage] = useState(1)
-  const [customersPerPage] = useState(14)
+const BasicTable = ({
+  customers,
+  setCustomers,
+  currentCustomers,
+  paginate,
+  customersPerPage,
+}) => {
   const [addFormData, setAddFormData] = useState({
     customer_id: '',
     email: '',
@@ -119,12 +121,6 @@ const BasicTable = () => {
 
     setCustomers(newCustomers)
   }
-
-  const indexOfLastPost = currentPage * customersPerPage
-  const indexOfFirstPost = indexOfLastPost - customersPerPage
-  const currentCustomers = customers.slice(indexOfFirstPost, indexOfLastPost)
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
     <div className='app-container'>
