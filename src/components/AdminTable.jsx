@@ -126,7 +126,6 @@ const BasicTable = ({
     <div className='app-container'>
       <TableDesign
         handleEditFormSubmit={handleEditFormSubmit}
-        customers={customers}
         currentCustomers={currentCustomers}
         editCustomerId={editCustomerId}
         editFormData={editFormData}

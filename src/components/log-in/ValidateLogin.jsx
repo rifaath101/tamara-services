@@ -10,7 +10,7 @@ export default function validateInfo(formData) {
   if (!formData.password) {
     errors.password = 'Password required'
   } else if (formData.password !== 'password54') {
-    errors.password = 'incorrect password'
+    errors.password = 'invalid password'
   }
 
   return errors

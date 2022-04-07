@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
-import data from './MOCK_DATA.json'
+import React, { useState, useContext } from 'react'
 import AdminTable from './AdminTable'
-import UserViewTable from './user-view/UserViewTable'
+import { DataContextProvider, DataContext } from './Context'
 
 const FinalData = () => {
-  const [customers, setCustomers] = useState(data)
+  const [customers, setCustomers] = useContext(DataContext)
   const [currentPage, setCurrentPage] = useState(1)
   const [customersPerPage] = useState(14)
 
@@ -15,7 +14,7 @@ const FinalData = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
-    <>
+    <DataContextProvider>
       <AdminTable
         customers={customers}
         setCustomers={setCustomers}
@@ -31,7 +30,7 @@ const FinalData = () => {
         paginate={paginate}
         customersPerPage={customersPerPage}
   />*/}
-    </>
+    </DataContextProvider>
   )
 }
 
