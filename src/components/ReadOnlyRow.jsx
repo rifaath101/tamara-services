@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { DataContext } from './context/Context'
 
-const ReadOnlyRow = ({ customer, handleEditClick, handleDeleteClick }) => {
+const ReadOnlyRow = ({ customer }) => {
+  const { handleEditClick } = useContext(DataContext)
+  const { handleDeleteClick } = useContext(DataContext)
   return (
     <tr>
       <td>{customer.customer_id}</td>

@@ -1,16 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { DataContext } from './context/Context'
 import EditRow from './EditRow'
 import ReadOnlyRow from './ReadOnlyRow'
-const TableDesign = ({
-  handleEditFormSubmit,
-  editCustomerId,
-  editFormData,
-  handleEditFormChange,
-  handleCancelClick,
-  handleEditClick,
-  handleDeleteClick,
-  currentCustomers,
-}) => {
+
+const TableDesign = ({ handleEditFormSubmit, editCustomerId }) => {
+  const { currentCustomers } = useContext(DataContext)
+
   return (
     <div className='table-wrapper'>
       <form className='data-form' onSubmit={handleEditFormSubmit}>
@@ -36,17 +31,9 @@ const TableDesign = ({
             {currentCustomers.map((customer) => (
               <>
                 {editCustomerId === customer.customer_id ? (
-                  <EditRow
-                    editFormData={editFormData}
-                    handleEditFormChange={handleEditFormChange}
-                    handleCancelClick={handleCancelClick}
-                  />
+                  <EditRow />
                 ) : (
-                  <ReadOnlyRow
-                    customer={customer}
-                    handleEditClick={handleEditClick}
-                    handleDeleteClick={handleDeleteClick}
-                  />
+                  <ReadOnlyRow customer={customer} />
                 )}
               </>
             ))}

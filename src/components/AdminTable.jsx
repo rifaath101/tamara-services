@@ -1,15 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import TableDesign from './TableDesign'
 import AddData from './addData/AddData'
 import Pagination from './Pagination'
+import { DataContext } from './context/Context'
 
-const BasicTable = ({
-  customers,
-  setCustomers,
-  currentCustomers,
-  paginate,
-  customersPerPage,
-}) => {
+const BasicTable = () => {
+  const { customers, setCustomers } = useContext(DataContext)
   const [addFormData, setAddFormData] = useState({
     customer_id: '',
     email: '',
@@ -25,34 +21,9 @@ const BasicTable = ({
     national_id: '',
   })
 
-  const [editFormData, setEditFormData] = useState({
-    customer_id: '',
-    email: '',
-    first_name: '',
-    last_name: '',
-    phone_number: '',
-    gender: '',
-    birth_date: '',
-    country_code: '',
-    address: '',
-    is_email_verified: '',
-    is_id_verified: '',
-    national_id: '',
-  })
+  const { editFormData } = useContext(DataContext)
 
-  const [editCustomerId, setEditCustomerId] = useState(null)
-
-  const handleEditFormChange = (event) => {
-    event.preventDefault()
-
-    const fieldName = event.target.getAttribute('name')
-    const fieldValue = event.target.value
-
-    const newFormData = { ...editFormData }
-    newFormData[fieldName] = fieldValue
-
-    setEditFormData(newFormData)
-  }
+  const { editCustomerId, setEditCustomerId } = useContext(DataContext)
 
   const handleEditFormSubmit = (event) => {
     event.preventDefault()
@@ -84,67 +55,14 @@ const BasicTable = ({
     setEditCustomerId(null)
   }
 
-  const handleEditClick = (event, customer) => {
-    event.preventDefault()
-    setEditCustomerId(customer.customer_id)
-
-    const formValues = {
-      customer_id: customer.customer_id,
-      email: customer.email,
-      first_name: customer.first_name,
-      last_name: customer.last_name,
-      phone_number: customer.phone_number,
-      gender: customer.gender,
-      birth_date: customer.birth_date,
-      country_code: customer.country_code,
-      address: customer.address,
-      is_email_verified: customer.is_email_verified,
-      is_id_verified: customer.is_id_verified,
-      national_id: customer.national_id,
-    }
-
-    setEditFormData(formValues)
-  }
-
-  const handleCancelClick = () => {
-    setEditCustomerId(null)
-  }
-
-  const handleDeleteClick = (customerId) => {
-    const newCustomers = [...customers]
-
-    const index = customers.findIndex(
-      (customer) => customer.customer_id === customerId
-    )
-
-    newCustomers.splice(index, 1)
-
-    setCustomers(newCustomers)
-  }
-
   return (
     <div className='app-container'>
       <TableDesign
         handleEditFormSubmit={handleEditFormSubmit}
-        currentCustomers={currentCustomers}
         editCustomerId={editCustomerId}
-        editFormData={editFormData}
-        handleEditFormChange={handleEditFormChange}
-        handleCancelClick={handleCancelClick}
-        handleEditClick={handleEditClick}
-        handleDeleteClick={handleDeleteClick}
       />
-      <Pagination
-        paginate={paginate}
-        customersPerPage={customersPerPage}
-        totalCustomers={customers.length}
-      />
-      <AddData
-        addFormData={addFormData}
-        customers={customers}
-        setCustomers={setCustomers}
-        setAddFormData={setAddFormData}
-      />
+      <Pagination totalCustomers={customers.length} />
+      <AddData addFormData={addFormData} setAddFormData={setAddFormData} />
     </div>
   )
 }

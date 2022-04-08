@@ -1,27 +1,11 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import AdminTable from './AdminTable'
-import { DataContextProvider, DataContext } from './Context'
+import { DataContextProvider } from './context/Context'
 
 const FinalData = () => {
-  const [customers, setCustomers] = useContext(DataContext)
-  const [currentPage, setCurrentPage] = useState(1)
-  const [customersPerPage] = useState(14)
-
-  const indexOfLastPost = currentPage * customersPerPage
-  const indexOfFirstPost = indexOfLastPost - customersPerPage
-  const currentCustomers = customers.slice(indexOfFirstPost, indexOfLastPost)
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
-
   return (
     <DataContextProvider>
-      <AdminTable
-        customers={customers}
-        setCustomers={setCustomers}
-        currentCustomers={currentCustomers}
-        paginate={paginate}
-        customersPerPage={customersPerPage}
-      />
+      <AdminTable />
 
       {/*<UserViewTable
         customers={customers}

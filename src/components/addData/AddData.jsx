@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { DataContext } from '../context/Context'
 import AddDataStyling from './AddDataStyling'
 
-const AddData = ({ addFormData, customers, setCustomers, setAddFormData }) => {
+const AddData = ({ addFormData, setAddFormData }) => {
+  const { customers, setCustomers } = useContext(DataContext)
   const handleAddFormChange = (event) => {
     event.preventDefault()
 

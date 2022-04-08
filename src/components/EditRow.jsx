@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { DataContext } from './context/Context'
 
-const EditRow = ({ editFormData, handleEditFormChange, handleCancelClick }) => {
+const EditRow = () => {
+  const { editFormData } = useContext(DataContext)
+  const { handleEditFormChange } = useContext(DataContext)
+  const { handleCancelClick } = useContext(DataContext)
   return (
     <tr>
       <td>
