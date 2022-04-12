@@ -2,9 +2,9 @@ import React, { useContext } from 'react'
 import { DataContext } from './context/Context'
 
 const EditRow = () => {
-  const { editFormData } = useContext(DataContext)
-  const { handleEditFormChange } = useContext(DataContext)
-  const { handleCancelClick } = useContext(DataContext)
+  const { editFormData, handleEditFormChange, handleCancelClick } =
+    useContext(DataContext)
+
   return (
     <tr>
       <td>

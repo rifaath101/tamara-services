@@ -5,7 +5,14 @@ import Pagination from './Pagination'
 import { DataContext } from './context/Context'
 
 const BasicTable = () => {
-  const { customers, setCustomers } = useContext(DataContext)
+  const {
+    customers,
+    setCustomers,
+    editFormData,
+    editCustomerId,
+    setEditCustomerId,
+  } = useContext(DataContext)
+
   const [addFormData, setAddFormData] = useState({
     customer_id: '',
     email: '',
@@ -20,10 +27,6 @@ const BasicTable = () => {
     is_id_verified: '',
     national_id: '',
   })
-
-  const { editFormData } = useContext(DataContext)
-
-  const { editCustomerId, setEditCustomerId } = useContext(DataContext)
 
   const handleEditFormSubmit = (event) => {
     event.preventDefault()

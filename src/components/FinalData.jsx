@@ -1,5 +1,6 @@
 import React from 'react'
 import AdminTable from './AdminTable'
+import UserViewTable from './user-view/UserViewTable'
 import { DataContextProvider } from './context/Context'
 
 const FinalData = () => {
@@ -7,13 +8,7 @@ const FinalData = () => {
     <DataContextProvider>
       <AdminTable />
 
-      {/*<UserViewTable
-        customers={customers}
-        setCustomers={setCustomers}
-        currentCustomers={currentCustomers}
-        paginate={paginate}
-        customersPerPage={customersPerPage}
-  />*/}
+      {/*<UserViewTable />*/}
     </DataContextProvider>
   )
 }

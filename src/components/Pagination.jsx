@@ -2,8 +2,7 @@ import React, { useContext } from 'react'
 import { DataContext } from './context/Context'
 
 const Pagination = ({ totalCustomers }) => {
-  const { paginate } = useContext(DataContext)
-  const { customersPerPage } = useContext(DataContext)
+  const { paginate, customersPerPage } = useContext(DataContext)
   const pageNumbers = []
 
   for (let i = 1; i <= Math.ceil(totalCustomers / customersPerPage); i++) {

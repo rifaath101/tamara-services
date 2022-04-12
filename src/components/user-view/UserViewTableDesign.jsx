@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { DataContext } from '../context/Context'
 
-const UserViewTableDesign = ({ customers, currentCustomers }) => {
+const UserViewTableDesign = () => {
+  const { currentCustomers } = useContext(DataContext)
+
   return (
     <div className='table-wrapper'>
       <form className='data-form'>

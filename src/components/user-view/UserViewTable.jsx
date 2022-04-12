@@ -1,25 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import UserViewTableDesign from './UserViewTableDesign'
 import Pagination from '../Pagination'
+import { DataContext } from '../context/Context'
 
-const UserViewTable = ({
-  customers,
-  setCustomers,
-  currentCustomers,
-  paginate,
-  customersPerPage,
-}) => {
+const UserViewTable = () => {
+  const { customers } = useContext(DataContext)
+
   return (
     <>
-      <UserViewTableDesign
-        customers={customers}
-        currentCustomers={currentCustomers}
-      />
-      <Pagination
-        paginate={paginate}
-        customersPerPage={customersPerPage}
-        totalCustomers={customers.length}
-      />
+      <UserViewTableDesign />
+      <Pagination totalCustomers={customers.length} />
     </>
   )
 }
